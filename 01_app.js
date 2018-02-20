@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var util = require("util");
 const MongoClient = require('mongodb').MongoClient
 app.use(express.static('public'));
 /* on associe le moteur de vue au module «ejs» */
