@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var util = require("util");
 const MongoClient = require('mongodb').MongoClient
+const ObjectID = require('mongodb').ObjectID;
 app.use(express.static('public'));
 /* on associe le moteur de vue au module «ejs» */
 app.set('view engine', 'ejs'); // générateur de template
