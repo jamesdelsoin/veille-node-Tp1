@@ -2,6 +2,7 @@ body {
   background-color: blue;
   background-color: cyan;
   margin: auto;
+  color: blue;
 }
 .tableau {
   border-collapse: collapse;
