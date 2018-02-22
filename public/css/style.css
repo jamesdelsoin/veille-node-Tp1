@@ -9,5 +9,6 @@ body {
 .tableau td,
 .tableau th {
   border: 1 px dotted #aaa;
+  border: 2px solid black;
   padding: 5px;
 }
