@@ -1,13 +1,11 @@
 body {
-	 background-color: blue;
+  background-color: blue;
 }
-
-.tableau{
-	
-	border-collapse : collapse;	
+.tableau {
+  border-collapse: collapse;
 }
-
-.tableau td, .tableau th {
-	border : 1px dotted #aaa;
-	padding : 5px;
+.tableau td,
+.tableau th {
+  border: 1 px dotted #aaa;
+  padding: 5px;
 }
