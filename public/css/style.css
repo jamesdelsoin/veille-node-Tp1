@@ -1,6 +1,7 @@
 body {
   background-color: blue;
   background-color: cyan;
+  margin: auto;
 }
 .tableau {
   border-collapse: collapse;
