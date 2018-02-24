@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<%- include('composants/head') %>
+</head>
+<body>
+
+<ul class="adresse">
+ <% for(adr of adresse) {%>
+ <li class="client"> 
+ <span><%= adr.nom %></span>
+ <span><%= adr.prenom %></span>
+ <span><%= adr.telephone %></span>
+ <span> - <%= adr._id %></span> 
+ <a href=http://localhost:8081/detruire/<%= adr._id %> >Détruire </a> "
+ </li>
+ <% } %>
+ </ul>
+
+ </table>
+
+ <%- include('composants/entete') %>
+ <%- include('composants/form_post_ajouter') %>
+ <%- include('composants/form_post_modifier') %>
+
+</body>
+</html>

@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var util = require("util");
 const MongoClient = require('mongodb').MongoClient
+const peupler = require("./mes_modules/peupler");
 const ObjectID = require('mongodb').ObjectID;
 app.use(express.static('public'));
 /* on associe le moteur de vue au module «ejs» */
@@ -63,20 +64,6 @@ app.post('/modifier', (req, res) => {
  res.redirect('/adresse')
  })
 })
-/*
-app.get('/detruire/:telephone', (req, res) => {
-
- db.collection('adresse')
- .findOneAndDelete( {'telephone': req.params.telephone} ,(err, resultat) => {
- if (err) return res.send(500, err)
- var cursor = db.collection('adresse').find().toArray(function(err, resultat){
- if (err) return console.log(err)
- res.render('gabarit.ejs', {adresse: resultat})
- })
-
-}) 
-})
-*/
 
 app.get('/detruire/:id', (req, res) => {
  var id = req.params.id 
@@ -93,4 +80,39 @@ console.log(id)
 if (err) return console.log(err)
   res.redirect('/adresse')
  })
+})
+
+// Root peuple
+/*
+app.get('/peupler', (req,res) => {
+ let nouvelleListe = peupler();
+ console.log(util.inspect(nouvelleListe))
+ db.collection('adresse').insertMany(nouvelleListe, (err, result) =>{
+ 	if(err) return console.log(err)
+ 		console.log("ajout d'un membre")
+ 		res.redirect('/')
+ 	}) 
+
+})*/
+app.get('/peupler', (req,res) =>{
+	//res.resultat = peupler_bd()
+	console.log('peupler')
+	let tab = peupler();
+	console.log(tab)
+	for(let i=0; i<10; i++) {
+		let tabTemp = tab[i];
+		let personne = {
+			nom:tab[i][0],
+			prenom:tab[i][1],
+			telephone:tab[i][2],
+			courriel:tab[i][3]
+		}
+		console.log(personne)
+		db.collection('adresse').save(personne, (err, result) => {
+		if (err) return console.log(err)
+			console.log('sauvegarder dans la BD')
+			
+		})
+	}
+	res.redirect('/adresse')
 })
